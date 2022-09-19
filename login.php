@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-$cookie_name = "user";
+//$cookie_name = "user";
 
    require_once("config.php");
     // Connect to DB

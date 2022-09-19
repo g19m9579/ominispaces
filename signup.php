@@ -57,7 +57,7 @@
         // close the connection to database
         if($result){
           mysqli_close($conn);
-          header('location: login.php');
+          header('location: https://omnispaces.herokuapp.com/login.php');
           exit;
         }
 
