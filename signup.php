@@ -4,7 +4,7 @@
         
         require_once("config.php");
         // make connection to database
-        $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db); 
+        $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
         or die("ERROR: unable to connect to database!");
           
    

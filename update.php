@@ -23,7 +23,7 @@ $position = $_REQUEST['position'];
 $password = $_REQUEST['password'];
 
 //make a connecetion to the database 
-$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db); 
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
 or die("ERROR: unable to connect to database!");
             
 // issue query instructions 

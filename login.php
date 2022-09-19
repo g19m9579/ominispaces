@@ -5,7 +5,8 @@ $cookie_name = "emplogin_id";
 
    require_once("config.php");
     // Connect to DB
-    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db); or die("ERROR: unable to connect to database!");
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+    or die("ERROR: unable to connect to database!");
     //Processing form data when form is submitted
     if(isset($_REQUEST['submit'])){
      
