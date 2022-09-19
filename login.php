@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 //$cookie_name = "user";
 
    require_once("config.php");
