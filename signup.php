@@ -173,8 +173,8 @@
                     <div class="field padding-bottom--24">
                         <div class="grid--50-50">
                           <label for="username"> First Name</label>
+                          <input type="text" name="firstname" required>
                         </div>
-                        <input type="text" name="firstname" required>
                       </div>
 
                       <div class="field padding-bottom--24">
@@ -201,15 +201,18 @@
                       <label for="position">position</label>
                       <input type="text" name="position" required>
                     </div>
+                    </div>
 
                     <div class="field padding-bottom--24">
                       <label for="linemanager">linemanager</label>
                       <input type="text" name="linemanager" required>
                     </div>
+                    </div>
                     
                     <div class="field padding-bottom--24">
                       <label for="image">image</label>
                       <input type="image" name="image" required>
+                    </div>
                     </div>
 
                     <div class="field padding-bottom--24">
@@ -217,14 +220,13 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" min="6" max="10" required>
                       </div>
-                
                     </div>
 
                     <div class="field padding-bottom--24">
                       <div class="grid--50-50">
                         <label for="confirmpassword">Confirm Password</label>
+                        <input type="password" name="confirmpassword">
                       </div>
-                      <input type="password" name="confirmpassword">
                     </div>
 
                     <div id="message">

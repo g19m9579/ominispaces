@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-$cookie_name = "emplogin_id";
+$cookie_name = "user";
 
    require_once("config.php");
     // Connect to DB
