@@ -94,18 +94,18 @@
                                 <div class="formbg-inner padding-horizontal--48">
                                     <span class="padding-bottom--15">Sign in to your account</span>
                                     <form action="login.php" method="POST">
-                                    <div class="field padding-bottom--24">
+                           
                                         <div class="grid--50-50">
                                             <label for="emp_id">EmployeeNumber</label>
-                                            <input type="text" name="emp_id" required>
                                         </div>
-                                        </div>
-                                        <div class="field padding-bottom--24">
+                                        <input type="text" name="emp_id" required>
+                               
+                                      
                                             <div class="grid--50-50">
                                                 <label for="password">Password</label>
                                             </div>
                                             <input type="password" name="password" placeholder="Password" required>
-                                        </div>
+                                       
                                         <div class="text-center">Dont have an account? <a href="signup.php">Sign Up</a></div>
                                         <div class="field padding-bottom--24">
                                         <p id="temp">
