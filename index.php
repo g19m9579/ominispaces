@@ -57,6 +57,29 @@ include("auth_session.php");
     </div>
     </div>
 
+    <?php
+   require_once("config.php");
+   // make connection to database
+   $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+   or die("ERROR: unable to connect to database!");
+    
+
+   $slquery = "SELECT COUNT(*) as total FROM employee
+               WHERE EXISTS
+                 (SELECT *
+                 FROM employee
+                 WHERE employee_number = 619 );";
+   
+
+   $selectresult = mysqli_query($conn, $slquery)
+                   or die(" cannot run query.");
+
+   $data=mysqli_fetch_array($selectresult);
+
+   echo $data;
+
+    ?>
+
 </body>
 
 </html>
