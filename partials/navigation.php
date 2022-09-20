@@ -19,7 +19,7 @@
                     <a href="#" class="dropbtn">Portfolio</a>
                     <div class="dropdown-content">
                         <a href="Reports.php">Reports</a>
-                <li class="dropdown"><a href=""class="dropbtn">User : <?php echo $_SESSION["login"];?></a>
+                <!-- <li class="dropdown"><a href=""class="dropbtn">User : <?php echo $_SESSION["login"];?></a> -->
                 <div class="dropdown-content">
                         <a href="userupdate.php">Settings</a></li>
                 <li><a href="logout.php">LogOut</a></li>

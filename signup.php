@@ -14,10 +14,10 @@
         $birthdate = $_REQUEST['bdate'];
         $linemanager = $_REQUEST['linemanager'];
 
-        $Picture = time().$_FILES['image']['name'];
+        $Picture = time().$_FILES['fileToUpload']['name'];
         //Move image destination//
         $dest = "images/" . $Picture;
-        move_uploaded_file($_FILES['image']['tmp_name'], $dest);
+        move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
 
         $position = $_REQUEST['position'];
         $password = $_REQUEST['password'];
@@ -203,8 +203,8 @@
                        
 
                             <div class="grid--50-50">
-                            <label for="image">image</label>
-                            <input type="image" name="image" required>
+                            <label for="fileToUpload">  Select image to upload:</label>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
                             </div>
                         
                             <div class="grid--50-50">

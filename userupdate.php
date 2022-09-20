@@ -8,7 +8,7 @@
 // import credentials from the database
 require_once("config.php");
 
-$user_id =$_SESSION['trader'];
+//$user_id =$_SESSION['trader'];
 //make a connecetion to the database 
 $conn = mysqli_connect (SERVERNAME, USERNAME, PASSWORD, DATABASE)
 or die("<p style=\"color: red;\">Could not connect to database!</p>");  
