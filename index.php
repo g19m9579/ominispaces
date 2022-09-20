@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
     
     <title> OMNI </title>
-    <link rel="shortcut icon" type="image/jpg" href="images\favicon_io\favicon.ico"/>
+    <link rel="shortcut icon" type="images/jpg" href="images\favicon_io\favicon.ico"/>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">

@@ -53,61 +53,60 @@
  </head>
  <body>
 
-  <?php
-  // import credentials from the database
-  require_once("config.php");
-
-  //$user_id =$_SESSION['trader'];
-  //make a connecetion to the database 
-  $conn = mysqli_connect (SERVERNAME, USERNAME, PASSWORD, DATABASE)
-  or die("<p style=\"color: red;\">Could not connect to database!</p>");  
-  // issue the query 
-  $query= "SELECT firstName, lastName, emailAddress, userPass FROM trader Where  Trader_id='$user_id';";
-  $result= mysqli_query ($conn, $query) or die("Was unable to update details");
-  // store the trader details 
-  while($row=mysqli_fetch_array($result)){
-  $firstname= $row['firstName'];
-  $lastname= $row['lastName'];
-  $email=$row['emailAddress'];
-  $password=$row['userPass'];
-  }
-  //close connection 
-  mysqli_close($conn);
-  // display message to confirm that data has been inserted 
-?>
-
     <div class="row">
         <div class="column" style="background-color:#D7DBDD;  padding: 70px 0;
-          padding-left: 150px ;
+          padding: 100px ;
 }">
         <h1>Edit Profile</h1>
-          <form action="update.php" method= "POST"> enctype="multipart/form-data"  >    
-                <label for="username"> First Name</label>
-                <input type="text" name="firstname" required>
+          <form action="update.php" method= "POST" enctype="multipart/form-data"  >    
+                      <div class="grid--50-50">
+                            <label for="username"> First Name</label>
+                            <input type="text" name="firstname" required>
+                            </div>
 
-                <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" required>
 
-                <label for="emp_id">EmployeeNumber</label>
-                <input type="text" name="emp_id" required>
+                            <div class="grid--50-50">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" name="lastname" required>
+                            </div>
+                           
+                            <div class="grid--50-50">
+                            <label for="emp_id">EmployeeNumber</label>
+                            <input type="text" name="emp_id" required>
+                            </div>
+                            
+                            <div class="grid--50-50">
+                            <label for="bdate">birthdate</label>  
+                            <input type="date" name="bdate" required>
+                            </div>
+                         
+                            <div class="grid--50-50">
+                            <label for="position">position</label>
+                            <input type="text" name="position" required>
+                            </div>
+                        
+                            <div class="grid--50-50">
+                            <label for="linemanager">linemanager</label>
+                            <input type="text" name="linemanager" required>
+                            </div>
+                       
 
-                <label for="bdate">birthdate</label>
-                <input type="date" name="bdate" required>
+                            <div class="grid--50-50">
+                            <label for="fileToUpload">  Select image to upload:</label>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            </div>
+                        
+                            <div class="grid--50-50">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" min="6" max="10" required>
+                            </div>
 
-                <label for="position">position</label>
-                <input type="text" name="position" required>
-
-                <label for="linemanager">linemanager</label>
-                <input type="text" name="linemanager" required>
-
-                <label for="image">image</label>
-                <input type="image" name="image" required>
-
-                <label for="password">Password</label>
-                <input type="password" name="password" min="6" max="10" required>
-
-                <label for="confirmpassword">Confirm Password</label>
-                <input type="password" name="confirmpassword">
+                            <div class="grid--50-50">
+                            <label for="confirmpassword">Confirm Password</label>
+                            <input type="password" name="confirmpassword">
+                            </div>
+                   
+                         
               </form>
         </div>
         <div class="column" style="background-color:#D7DBDD;  height: 438px  padding: 70px 0;
@@ -119,8 +118,8 @@
       // add database credentials
       require_once("config.php");
       // make connection to DB
-      $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DATABASE)
-              or die("<p style=\"color: red;\">Could not connect to database!</p>");
+      $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+      or die("ERROR: unable to connect to database!");
       // issue query instructions
       $query = "SELECT * FROM employee Where employee_number = '$emp_ID';";
       $result = mysqli_query($conn, $query)
@@ -155,10 +154,7 @@
     </div>
 
 
-       
-          
-   
-	
+
     
 	  <!-- +++++ Footer Section +++++ -->
   
