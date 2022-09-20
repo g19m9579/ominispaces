@@ -64,17 +64,13 @@
    or die("ERROR: unable to connect to database!");
     
 
-   $slquery = "SELECT COUNT(*) as total FROM employee
-               WHERE EXISTS
-                 (SELECT *
-                 FROM employee
-                 WHERE employee_number = 619 );";
+   $slquery = " SELECT * FROM employee WHERE employee_number = 619;";
    
 
-   $selectresult = $conn->query($slquery)
+   $result = $conn->query($slquery)
                    or die(" cannot run query.");
 
-   $data=fetch_array($selectresult);
+
 
    while($row = $result->fetch_assoc()) {
     echo "id: " . $row["name"] ."<br>";
