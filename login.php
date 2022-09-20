@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+<!-- <?php
 //session_start();
 //$cookie_name = "user";
 
@@ -41,7 +41,7 @@
       }
       // close the connection to database
       mysqli_close($conn);
-?>
+?> -->
 
 <html lang="en">
 
