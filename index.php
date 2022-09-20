@@ -50,17 +50,7 @@
                 <div class="row">
 
                     <p class='pt-3'>
-                     
-                    </p>
-
-                </div><!-- /col-lg-4 -->
-            </div>
-    </div>
-    </footer>
-    </div>
-    </div>
-
-    <?php
+                    <?php
    require_once("config.php");
    // make connection to database
    // Connect to DB
@@ -81,6 +71,16 @@
 
     ?> 
 
+                    </p>
+
+                </div><!-- /col-lg-4 -->
+            </div>
+    </div>
+    </footer>
+    </div>
+    </div>
+
+   
 </body>
 
 </html>
