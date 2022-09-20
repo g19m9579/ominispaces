@@ -60,7 +60,7 @@
     <?php
    require_once("config.php");
    // make connection to database
-   $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+   $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
    or die("ERROR: unable to connect to database!");
     
 
@@ -71,12 +71,14 @@
                  WHERE employee_number = 619 );";
    
 
-   $selectresult = mysqli_query($conn, $slquery)
+   $selectresult = $conn->query($slquery)
                    or die(" cannot run query.");
 
-   $data=mysqli_fetch_array($selectresult);
+   $data=fetch_array($selectresult);
 
-   echo $data;
+   while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["name"] ."<br>";
+  }
 
     ?>
 
