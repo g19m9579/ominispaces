@@ -21,7 +21,7 @@
                         <a href="reports.php">Adminstration</a>
                 <!-- <li class="dropdown"><a href=""class="dropbtn">User : <?php echo $_SESSION["login"];?></a> -->
                 <div class="dropdown-content">
-                        <a href="settings.php">Settings</a></li>
+                        <a href="usersettings.php">Settings</a></li>
                 <li><a href="logout.php">LogOut</a></li>
         </div>
         </li>

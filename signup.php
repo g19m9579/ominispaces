@@ -63,7 +63,7 @@
         or die("ERROR: unable to connect to database!");
           
    
-        $firstname = $_REQUEST['name'];
+        $firstname = $_REQUEST['firstname'];
         $lastname = $_REQUEST['surname'];
         $emp_id = $_REQUEST['emp_id'];
         $birthdate = $_REQUEST['bdate'];
@@ -75,6 +75,27 @@
         move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
 
         $position = $_REQUEST['position'];
+        $pos_code;
+        switch ($position) {
+          case "Intern":
+            $pos_code = 1;
+            break;
+          case "Staff":
+            $pos_code = 2;
+            break;
+          case "HR" || "Supervisor":
+            $pos_code = 3;
+            break;
+          case "Service Manager" || "Adminstrator" || "General Manager":
+            $pos_code = 4;
+            break;
+          case "CEO" :
+            $pos_code = 5;
+            break;
+          default:
+          $pos_code = null;
+        }
+        
         $password = $_REQUEST['password'];
         $cpassword = $_REQUEST['confirmpassword'];
 
@@ -105,8 +126,8 @@
           }
         
           // issue query instructions
-        $query = "INSERT INTO employee(name,surname,employee_number,password,birthdate,position,line_manager,image)
-        VALUE( '$firstname', '$lastname', '$emp_id','$password', '$birthdate','$position' , '$linemanager' , '$Picture')";
+        $query = "INSERT INTO employee(firstame,surname,employee_number,password,birthdate,position,position_code,line_manager,image)
+        VALUE( '$firstname', '$lastname', '$emp_id','$password', '$birthdate','$position' ,'$pos_code' '$linemanager' , '$Picture')";
 
         $result = mysqli_query($conn, $query) or die("ERROR: unable to execute query!");
         // close the connection to database
@@ -187,7 +208,7 @@
 
   <div id="page-container">
     <div id="content-wrap">
-      <!-- all other page content -->
+      <!-- all other page content    //Intern,Staff,HR,Supervisor,Service Manager,Adminstrator,General Manager,CEO-->
       <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
           <div class="loginbackground box-background--white padding-top--64">
@@ -239,23 +260,32 @@
 
 
                             <div class="grid--50-50">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" name="lastname" required>
+                            <label for="surname">Surname</label>
+                            <input type="text" name="surname" required>
                             </div>
                            
                             <div class="grid--50-50">
-                            <label for="emp_id">EmployeeNumber</label>
+                            <label for="emp_id">Employee Number</label>
                             <input type="text" name="emp_id" required>
                             </div>
                             
                             <div class="grid--50-50">
-                            <label for="bdate">birthdate</label>  
+                            <label for="bdate">Birthdate</label>  
                             <input type="date" name="bdate" required>
                             </div>
-                         
+                       
                             <div class="grid--50-50">
                             <label for="position">position</label>
-                            <input type="text" name="position" required>
+                            <select id="position" name="position" required>
+                                <option value="volvo">Intern</option>
+                                <option value="saab">Staff</option>
+                                <option value="fiat">HR</option>
+                                <option value="audi">Supervisor</option>
+                                <option value="volvo">Service Manager</option>
+                                <option value="saab">Adminstrator</option>
+                                <option value="fiat">General Manager</option>
+                                <option value="audi">CEO</option>
+                              </select>
                             </div>
                         
                             <div class="grid--50-50">
