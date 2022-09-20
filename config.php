@@ -16,5 +16,13 @@ $cleardb_db = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
-$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+or die("ERROR: unable to connect to database!");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+ }
+   echo "Connected successfully";
+   
 ?>

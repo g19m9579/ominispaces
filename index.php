@@ -2,6 +2,9 @@
 <?php
 //include auth_session.php file on all user panel pages
 //include("auth_session.php");
+
+
+
 ?>
 
 <html lang="en">
@@ -57,12 +60,9 @@
     </div>
     </div>
 
-    <?php
+    <!-- <?php
    require_once("config.php");
    // make connection to database
-   $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
-   or die("ERROR: unable to connect to database!");
-    
 
    $slquery = " SELECT * FROM employee WHERE employee_number = 619;";
    
@@ -76,7 +76,7 @@
     echo "id: " . $row["name"] ."<br>";
   }
 
-    ?>
+    ?> -->
 
 </body>
 
