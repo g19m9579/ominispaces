@@ -170,61 +170,60 @@
                   <span class="padding-bottom--15">Set up your new account</span>
 
                   <form action="signup.php" method="post" enctype="multipart/form-data"  >
-                    <div class="field padding-bottom--24">
+
+
                         <div class="grid--50-50">
                           <label for="username"> First Name</label>
                         </div>
                         <input type="text" name="firstname" required>
-                      </div>
 
-                      <div class="field padding-bottom--24">
+
+
                         <div class="grid--50-50">
                           <label for="lastname">Last Name</label>
                         </div>
                         <input type="text" name="lastname" required>
-                      </div>
 
                       
-                      <div class="field padding-bottom--24">
+
                         <div class="grid--50-50">
                           <label for="emp_id">EmployeeNumber</label>
                         </div>
                         <input type="text" name="emp_id" required>
-                      </div>
+ 
 
-                    <div class="field padding-bottom--24">
+                        <div class="grid--50-50">
                       <label for="bdate">birthdate</label>  
                     </div>
                     <input type="date" name="bdate" required>
                     </div>
 
-                    <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
                       <label for="position">position</label>
                     </div>
                     <input type="text" name="position" required>
                     </div>
 
-                    <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
                       <label for="linemanager">linemanager</label>
                     </div>
                     <input type="text" name="linemanager" required>
                     </div>
                     
-                    <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
                       <label for="image">image</label>
                     </div>
                     <input type="image" name="image" required>
                     </div>
 
-                    <div class="field padding-bottom--24">
+               
                       <div class="grid--50-50">
                         <label for="password">Password</label>
                       </div>
                       <input type="password" name="password" min="6" max="10" required>
                     </div>
 
-                    <div class="field padding-bottom--24">
-                      <div class="grid--50-50">
+                    <div class="grid--50-50">
                         <label for="confirmpassword">Confirm Password</label>
                       </div>
                       <input type="password" name="confirmpassword">
