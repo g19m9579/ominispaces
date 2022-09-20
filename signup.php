@@ -57,7 +57,7 @@
         // close the connection to database
         if($result){
           mysqli_close($conn);
-          header('location: https://omnispaces.herokuapp.com/login.php');
+          header('location: login.php');
           exit;
         }
 
@@ -174,6 +174,7 @@
                             <label for="username"> First Name</label>
                             <input type="text" name="firstname" required>
                             </div>
+
 
                             <div class="grid--50-50">
                             <label for="lastname">Last Name</label>

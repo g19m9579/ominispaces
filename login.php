@@ -109,14 +109,14 @@
                                         </div>
                                         <div class="text-center">Dont have an account? <a href="signup.php">Sign Up</a></div>
                                         <div class="field padding-bottom--24">
-                                        <p id="temp">
+                                        <!-- <p id="temp">
                                                 <?php
                                                 if(isset($_SESSION["message"])){
                                                     $error = $_SESSION["message"];
                                                     echo "<span>$error</span>";
                                                 }
                                                 ?>  
-                                                </p>
+                                                </p> -->
                                             <input type="submit" name="submit" value="Continue">
                                         </div>
                                     </form>
