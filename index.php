@@ -60,7 +60,7 @@
     </div>
     </div>
 
-    <!-- <?php
+    <?php
    require_once("config.php");
    // make connection to database
    // Connect to DB
@@ -79,7 +79,7 @@
     echo "id: " . $row["name"] ."<br>";
   }
 
-    ?> -->
+    ?> 
 
 </body>
 
