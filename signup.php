@@ -170,76 +170,77 @@
                   <span class="padding-bottom--15">Set up your new account</span>
 
                   <form action="signup.php" method="post" enctype="multipart/form-data"  >
-
-
-                        <div class="grid--50-50">
-                          <label for="username"> First Name</label>
-                        </div>
-                        <input type="text" name="firstname" required>
+                            <div class="grid--50-50">
+                            <label for="username"> First Name</label>
+                            </div>
+                            <input type="text" name="firstname" required>
 
 
 
-                        <div class="grid--50-50">
-                          <label for="lastname">Last Name</label>
-                        </div>
-                        <input type="text" name="lastname" required>
+                            <div class="grid--50-50">
+                            <label for="lastname">Last Name</label>
+                            </div>
+                            <input type="text" name="lastname" required>
 
-                      
 
-                        <div class="grid--50-50">
-                          <label for="emp_id">EmployeeNumber</label>
-                        </div>
-                        <input type="text" name="emp_id" required>
- 
 
-                        <div class="grid--50-50">
-                      <label for="bdate">birthdate</label>  
-                    </div>
-                    <input type="date" name="bdate" required>
-                    </div>
+                            <div class="grid--50-50">
+                            <label for="emp_id">EmployeeNumber</label>
+                            </div>
+                            <input type="text" name="emp_id" required>
 
-                    <div class="grid--50-50">
-                      <label for="position">position</label>
-                    </div>
-                    <input type="text" name="position" required>
-                    </div>
 
-                    <div class="grid--50-50">
-                      <label for="linemanager">linemanager</label>
-                    </div>
-                    <input type="text" name="linemanager" required>
-                    </div>
-                    
-                    <div class="grid--50-50">
-                      <label for="image">image</label>
-                    </div>
-                    <input type="image" name="image" required>
-                    </div>
+                            <div class="grid--50-50">
+                            <label for="bdate">birthdate</label>  
+                            </div>
+                            <input type="date" name="bdate" required>
 
-               
-                      <div class="grid--50-50">
-                        <label for="password">Password</label>
-                      </div>
-                      <input type="password" name="password" min="6" max="10" required>
-                    </div>
 
-                    <div class="grid--50-50">
-                        <label for="confirmpassword">Confirm Password</label>
-                      </div>
-                      <input type="password" name="confirmpassword">
-                    </div>
+                            <div class="grid--50-50">
+                            <label for="position">position</label>
+                            </div>
+                            <input type="text" name="position" required>
 
-                    <div id="message">
-                      <h5>Password must contain the following:</h5>
-                      <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                      <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                      <p id="number" class="invalid">A <b>number</b></p>
-                      <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                    </div>
-                    <div class="field padding-bottom--24">
-                      <input type="submit" name="submit" value="Continue">
-                    </div>
+
+                            <div class="grid--50-50">
+                            <label for="linemanager">linemanager</label>
+                            </div>
+                            <input type="text" name="linemanager" required>
+
+
+                            <div class="grid--50-50">
+                            <label for="image">image</label>
+                            </div>
+                            <input type="image" name="image" required>
+
+
+
+                            <div class="grid--50-50">
+                            <label for="password">Password</label>
+                            </div>
+                            <input type="password" name="password" min="6" max="10" required>
+
+
+                            <div class="grid--50-50">
+                            <label for="confirmpassword">Confirm Password</label>
+                            </div>
+                            <input type="password" name="confirmpassword">
+                         
+
+                            <div id="message">
+                              <h5>Password must contain the following:</h5>
+                              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                              <p id="number" class="invalid">A <b>number</b></p>
+                              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                            </div>
+                            
+                            <div class="field padding-bottom--24">
+                              <input type="submit" name="submit" value="Continue">
+                            </div>
+
                   </form>
+
                 </div>
               </div>
             </div>
