@@ -63,6 +63,9 @@
     <!-- <?php
    require_once("config.php");
    // make connection to database
+   // Connect to DB
+    $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+    or die("ERROR: unable to connect to database!");
 
    $slquery = " SELECT * FROM employee WHERE employee_number = 619;";
    
