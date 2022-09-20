@@ -1,50 +1,5 @@
 <!DOCTYPE html>
-<!-- <?php
-//session_start();
-//$cookie_name = "user";
-
-   require_once("config.php");
-    // Connect to DB
-    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
-    or die("ERROR: unable to connect to database!");
-    //Processing form data when form is submitted
-    if(isset($_REQUEST['submit'])){
-     
-            $emp_id = trim($_REQUEST['emp_id']);
-            $password = trim($_REQUEST['password']);
-
-            // issue query instructions
-            $query = "SELECT *
-            FROM employee
-            WHERE employee_number = '$emp_id'
-              AND  password = '$password';";
-
-            $result = mysqli_query($conn, $query) or die("ERROR: unable to execute query!");
-            
-            if($result){
-                $user;
-                while ($row = mysqli_fetch_array($result)){
-                  $user = $row['name'];
-                  $passw = $row['password'];
-                  $user_id = $row['employee_number'];
-                }
-                if($emp_id==$user_id and $passw == $password ){
-                  $_SESSION["login"]= $user;
-                  $_SESSION["employee"]= $user_id;
-                  header("location:index.php");
-                }else	{
-                  $_SESSION['message']="Incorrect Username or Password,Try again.";
-                  header("location:login.php");
-                }
-              }
-
-      }
-      // close the connection to database
-      mysqli_close($conn);
-?> -->
-
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
