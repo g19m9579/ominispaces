@@ -58,7 +58,7 @@
           padding: 100px ;
 }">
         <h1>Edit Profile</h1>
-          <form action="update.php" method= "POST" enctype="multipart/form-data"  >    
+        <?php echo "<form action=\"userupdate.php?id=" . $_GET['id'] . "\" method=\"POST\">"; ?>
                       <div class="grid--50-50">
                             <label for="username"> First Name</label>
                             <input type="text" name="firstname" required>
@@ -105,56 +105,56 @@
                             <label for="confirmpassword">Confirm Password</label>
                             <input type="password" name="confirmpassword">
                             </div>
-                   
-                         
+                          <input type="submit" name="submit" value="Update Record">
               </form>
         </div>
-        <div class="column" style="background-color:#D7DBDD;  height: 438px  padding: 70px 0;
-          border: 3px solid #17202A ;};">
     
-        <?php
-    //store employee Number from previous page
-      $emp_ID = $user_id;
-      // add database credentials
-      require_once("config.php");
-      // make connection to DB
-      $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
-      or die("ERROR: unable to connect to database!");
-      // issue query instructions
-      $query = "SELECT * FROM employee Where employee_number = '$emp_ID';";
-      $result = mysqli_query($conn, $query)
-              or die("<p style=\"color: red;\">Could not execute query!</p>");
-    //create headings
-    echo "<fieldset class=\"scheduler-border\">";
-    echo "<table>";
-  // show employee details
-      while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td><h4>"."Employee Number: ".$row['employee_number']."</h4></td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td><h4>"."Name: ".$row['name']." ".$row['surname']."</h4></td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td><h4>"."Position: ".$row['position']."</h4></td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td><h4>"."Line Manager: ". $row['linemanager']."</h4></td>"; 
-        echo "</tr>";
-      }
-      echo "</table>";   
-   
-      // close database connection
-      mysqli_close($conn);
-      ?>                 
-    </div>
-
-          
+        
+                
+          </div>
         </div>
     </div>
 
+      <?php
+      //store emplyeeNumber from previous page
+      $id = $_REQUEST['id'];
+      if (isset($_REQUEST['submit'])){
+      //echo $id;
+      // import credentials from the database
+      require_once("config.php");
+      // store the values from the form 
+      //$emplogin_id =$_SESSION["employee"];
+      $firstname = $_REQUEST['firstname'];
+      $lastname = $_REQUEST['surname'];
+      $emp_id = $_REQUEST['emp_id'];
+      $birthdate = $_REQUEST['bdate'];
+      $linemanager = $_REQUEST['linemanager'];
+
+      $Picture = time().$_FILES['image']['name'];
+      //Move image destination//
+      $dest = "images/" . $Picture;
+      move_uploaded_file($_FILES['image']['tmp_name'], $dest);
+
+      $position = $_REQUEST['position'];
+      $password = $_REQUEST['password'];
+
+      //make a connecetion to the database 
+      $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+      or die("ERROR: unable to connect to database!");
+                  
+      // issue query instructions 
+      $query= "UPDATE employee SET firstname ='$firstname' ,surname = '$lastname',employee_number= '$emp_id' ,
+      password = '$password',birthdate= '$birthdate' ,position = '$position',linemanager ='$linemanager' ,image='$Picture' WHERE employee_number= $id";
 
 
+      $result= mysqli_query ($conn, $query) or die("Was unable to update record");
+      //close connection 
+      mysqli_close($conn);
+      // display message to confirm that data has been inserted 
+      echo "<p style=\"color:green;\"> The record was successfully updated</p>";
+    }
+      ?>
+   
     
 	  <!-- +++++ Footer Section +++++ -->
   

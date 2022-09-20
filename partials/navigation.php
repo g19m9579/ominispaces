@@ -14,14 +14,14 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="homepage.php">Home</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Portfolio</a>
                     <div class="dropdown-content">
-                        <a href="reports.php">Reports</a>
+                        <a href="reports.php">Adminstration</a>
                 <!-- <li class="dropdown"><a href=""class="dropbtn">User : <?php echo $_SESSION["login"];?></a> -->
                 <div class="dropdown-content">
-                        <a href="userupdate.php">Settings</a></li>
+                        <a href="usersettings.php">Settings</a></li>
                 <li><a href="logout.php">LogOut</a></li>
         </div>
         </li>

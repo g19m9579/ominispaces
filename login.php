@@ -76,7 +76,7 @@ if(isset($_REQUEST['submit'])){
         if($emp_id==$user_id and $passw == $password ){
             $_SESSION["login"]= $user;
             $_SESSION["employee"]= $user_id;
-            header("location:index.php");
+            header("location:homepage.php");
         }else	{
             $_SESSION['message']="Incorrect Username or Password,Try again.";
             header("location:login.php");
