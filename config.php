@@ -1,6 +1,5 @@
 <?php
 
-
 //mysql://bc752cb2cd22f9:2b7fd4cd@us-cdbr-east-06.cleardb.net/heroku_2603e552e2050c5?reconnect=true
 
 //UN:bc752cb2cd22f9

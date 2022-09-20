@@ -4,29 +4,6 @@
 //include("auth_session.php");
 ?>
 
-<?php
-// import credentials from the database
-require_once("config.php");
-
-//$user_id =$_SESSION['trader'];
-//make a connecetion to the database 
-$conn = mysqli_connect (SERVERNAME, USERNAME, PASSWORD, DATABASE)
-or die("<p style=\"color: red;\">Could not connect to database!</p>");  
-// issue the query 
-$query= "SELECT firstName, lastName, emailAddress, userPass FROM trader Where  Trader_id='$user_id';";
-$result= mysqli_query ($conn, $query) or die("Was unable to update details");
-// store the trader details 
-while($row=mysqli_fetch_array($result)){
-$firstname= $row['firstName'];
-$lastname= $row['lastName'];
-$email=$row['emailAddress'];
-$password=$row['userPass'];
-}
-//close connection 
-mysqli_close($conn);
-// display message to confirm that data has been inserted 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,6 +52,30 @@ mysqli_close($conn);
     </style>
  </head>
  <body>
+
+  <?php
+  // import credentials from the database
+  require_once("config.php");
+
+  //$user_id =$_SESSION['trader'];
+  //make a connecetion to the database 
+  $conn = mysqli_connect (SERVERNAME, USERNAME, PASSWORD, DATABASE)
+  or die("<p style=\"color: red;\">Could not connect to database!</p>");  
+  // issue the query 
+  $query= "SELECT firstName, lastName, emailAddress, userPass FROM trader Where  Trader_id='$user_id';";
+  $result= mysqli_query ($conn, $query) or die("Was unable to update details");
+  // store the trader details 
+  while($row=mysqli_fetch_array($result)){
+  $firstname= $row['firstName'];
+  $lastname= $row['lastName'];
+  $email=$row['emailAddress'];
+  $password=$row['userPass'];
+  }
+  //close connection 
+  mysqli_close($conn);
+  // display message to confirm that data has been inserted 
+?>
+
     <div class="row">
         <div class="column" style="background-color:#D7DBDD;  padding: 70px 0;
           padding-left: 150px ;
