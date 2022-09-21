@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 //include auth_session.php file on all user panel pages
-//include("auth_session.php");
+include("auth_session.php");
 ?>
 
 <html lang="en">
@@ -31,14 +31,14 @@
 
         <legend><strong>Your Settings</strong></legend><br>
         <?php
-        $emply_id = $_REQUEST['id'];
+        $emplogin_id =$_SESSION["employee"];
         // add database credentials
         require_once("config.php");
         // make connection to DB
         $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
         or die("<p style=\"color: red;\">Could not connect to database!</p>");
         // issue query instructions
-        $query = "SELECT employee_number,surname, firstname FROM employee WHERE employee_number = $emply_id";
+        $query = "SELECT employee_number,surname, firstname FROM employee WHERE employee_number = $emplogin_id";
         $result = mysqli_query($conn, $query)
         or die("<p style=\"color: red;\">Could not execute query!</p>");
         //create headings

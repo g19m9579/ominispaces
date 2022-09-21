@@ -1,7 +1,7 @@
 
 <?php
 //include auth_session.php file on all user panel pages
-//include("auth_session.php");
+include("auth_session.php");
 ?>
 
 <!DOCTYPE html>
@@ -118,7 +118,7 @@
       // import credentials from the database
       require_once("config.php");
       // store the values from the form 
-      //$emplogin_id =$_SESSION["employee"];
+      $emplogin_id =$_SESSION["employee"];
       $firstname = $_REQUEST['firstname'];
       $lastname = $_REQUEST['surname'];
       $linemanager = $_REQUEST['linemanager'];
@@ -137,7 +137,7 @@
                   
       // issue query instructions 
       $query= "UPDATE employee SET firstname ='$firstname' ,surname = '$lastname',
-      password = '$password',position = '$position',salary ='$pay' ,linemanager ='$linemanager' ,image='$Picture' WHERE employee_number= $id";
+      password = '$password',position = '$position',salary ='$pay' ,linemanager ='$linemanager' ,image='$Picture' WHERE employee_number= $emplogin_id";
 
 
       $result= mysqli_query ($conn, $query) or die("Was unable to update record");
