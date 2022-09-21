@@ -69,17 +69,28 @@
                             <label for="lastname">Last Name</label>
                             <input type="text" name="lastname" required>
                             </div>
+                           
+                            <div class="grid--50-50">
+                            <label for="emp_id">EmployeeNumber</label>
+                            <input type="text" name="emp_id" required>
+                            </div>
+                            
+                            <div class="grid--50-50">
+                            <label for="bdate">birthdate</label>  
+                            <input type="date" name="bdate" required>
+                            </div>
                          
                             <div class="grid--50-50">
                             <label for="position">position</label>
                             <input type="text" name="position" required>
                             </div>
-                        
+
+                            
                             <div class="grid--50-50">
                             <label for="pay">Salary</label>
                             <input type="number" name="pay" required>
                             </div>
-
+                        
                             <div class="grid--50-50">
                             <label for="linemanager">linemanager</label>
                             <input type="text" name="linemanager" required>
@@ -121,6 +132,8 @@
       //$emplogin_id =$_SESSION["employee"];
       $firstname = $_REQUEST['firstname'];
       $lastname = $_REQUEST['surname'];
+      $emp_id = $_REQUEST['emp_id'];
+      $birthdate = $_REQUEST['bdate'];
       $linemanager = $_REQUEST['linemanager'];
 
       $Picture = time().$_FILES['image']['name'];
@@ -129,6 +142,7 @@
       move_uploaded_file($_FILES['image']['tmp_name'], $dest);
 
       $position = $_REQUEST['position'];
+      $pay = $_REQUEST['pay'];
       $password = $_REQUEST['password'];
 
       //make a connecetion to the database 
@@ -136,8 +150,8 @@
       or die("ERROR: unable to connect to database!");
                   
       // issue query instructions 
-      $query= "UPDATE employee SET firstname ='$firstname' ,surname = '$lastname',
-      password = '$password',position = '$position',salary ='$pay' ,linemanager ='$linemanager' ,image='$Picture' WHERE employee_number= $id";
+      $query= "UPDATE employee SET firstname ='$firstname' ,surname = '$lastname',employee_number= '$emp_id' ,
+      password = '$password',birthdate= '$birthdate' ,position = '$position', salary ='$pay',linemanager ='$linemanager' ,image='$Picture' WHERE employee_number= $id";
 
 
       $result= mysqli_query ($conn, $query) or die("Was unable to update record");

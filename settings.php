@@ -52,7 +52,7 @@
         echo "<tr>";
         echo "<td>".$row['firstname']." ".$row['surname']."</td>";
         echo "<td>". "<a href=\"details.php?id=". $row['employee_number']. "\"> details</a>" ."</td>";
-        echo "<td>". "<a href=\"userupdate.php?id=". $row['employee_number']. "\">Update</a>" ."</td>";
+        echo "<td>". "<a href=\"update.php?id=". $row['employee_number']. "\">Update</a>" ."</td>";
         echo "<td>" . "<a href=\"delete.php?id=" . $row['employee_number'] . "\"onClick=\"return confirm('Are you sure you want to delete?')\">delete</a>" . "</td>";
         echo "</tr>";
         echo "</tr>";

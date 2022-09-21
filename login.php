@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+//session_start();
+//$cookie_name = "user";
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">

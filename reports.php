@@ -22,6 +22,49 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:["orgchart"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+
+
+        //get database info for chart
+        <?php 
+            // add database credentials
+            require_once("config.php");
+        // make connection to DB
+        $conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+        or die("<p style=\"color: red;\">Could not connect to database!</p>");
+        // issue query instructions
+        $query = "SELECT * FROM employee";
+        $result = mysqli_query($conn, $query)
+        or die("<p style=\"color: red;\">Could not execute query!</p>");
+
+        // For each orgchart box, provide the name, manager, and tooltip to show.
+       echo "data.addRows([";
+       while($row = $result->fetch_assoc()) {
+        if($row['line_manager']){
+            echo "[{'v':".$row['firstname'].", 'f':' ".$row['line_manager']." <div style='color:red; font-style:italic'> ".$row['position']." </div>'}]";
+        }else{
+            echo "[".$row['firstname'].", ".$row['line_manager']." ,".$row['position']."]";
+        }
+       }
+        echo "]);";
+        ?>
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {'allowHtml':true});
+      }
+   </script>
+
+
 </head>
 
 <body>
@@ -32,7 +75,8 @@
     <!-- +++++ Main Section +++++ -->
     <div id="page-container" class='container'>
 
-        
+    <div id="chart_div"></div>
+
             <!-- all other page content -->
 
             <h2>Search Employees</h2>

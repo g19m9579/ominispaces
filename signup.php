@@ -75,26 +75,27 @@
         move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
 
         $position = $_REQUEST['position'];
-        $pos_code;
-        switch ($position) {
-          case "Intern":
-            $pos_code = 1;
-            break;
-          case "Staff":
-            $pos_code = 2;
-            break;
-          case "HR" || "Supervisor":
-            $pos_code = 3;
-            break;
-          case "Service Manager" || "Adminstrator" || "General Manager":
-            $pos_code = 4;
-            break;
-          case "CEO" :
-            $pos_code = 5;
-            break;
-          default:
-          $pos_code = null;
-        }
+        $pay = $_REQUEST['pay'];
+        // $pos_code;
+        // switch ($position) {
+        //   case "Intern":
+        //     $pos_code = 1;
+        //     break;
+        //   case "Staff":
+        //     $pos_code = 2;
+        //     break;
+        //   case "HR" || "Supervisor":
+        //     $pos_code = 3;
+        //     break;
+        //   case "Service Manager" || "Adminstrator" || "General Manager":
+        //     $pos_code = 4;
+        //     break;
+        //   case "CEO" :
+        //     $pos_code = 5;
+        //     break;
+        //   default:
+        //   $pos_code = null;
+        // }
         
         $password = $_REQUEST['password'];
         $cpassword = $_REQUEST['confirmpassword'];
@@ -126,8 +127,8 @@
           }
         
           // issue query instructions
-        $query = "INSERT INTO employee(firstame,surname,employee_number,password,birthdate,position,position_code,line_manager,image)
-        VALUE( '$firstname', '$lastname', '$emp_id','$password', '$birthdate','$position' ,'$pos_code' '$linemanager' , '$Picture')";
+        $query = "INSERT INTO employee(firstname,surname,employee_number,password,birthdate,position,salary,line_manager,image)
+        VALUE( '$firstname', '$lastname', '$emp_id','$password', '$birthdate','$position' ,'$pay', '$linemanager' , '$Picture')";
 
         $result = mysqli_query($conn, $query) or die("ERROR: unable to execute query!");
         // close the connection to database
@@ -138,7 +139,7 @@
         }
 
       }
-      
+     
       
 ?>
 
@@ -286,6 +287,11 @@
                                 <option value="fiat">General Manager</option>
                                 <option value="audi">CEO</option>
                               </select>
+                            </div>
+
+                            <div class="grid--50-50">
+                            <label for="pay">Salary</label>
+                            <input type="number" name="pay" required>
                             </div>
                         
                             <div class="grid--50-50">
