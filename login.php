@@ -1,5 +1,43 @@
 <!DOCTYPE html>
-<?php
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> OMNI </title>
+    <link rel="shortcut icon" type="image/jpg" href="images\favicon_io\favicon.ico"/>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="icon-bar"></span>
+                <h3>OMNI</h3>
+                <h6>
+                    Work place assurance
+                </h6>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="landing.html">Previous</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    
+    <?php
 //session_start();
 //$cookie_name = "user";
 
@@ -49,45 +87,6 @@ if(isset($_REQUEST['submit'])){
 // close the connection to database
 mysqli_close($conn);
 ?>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title> OMNI </title>
-    <link rel="shortcut icon" type="image/jpg" href="images\favicon_io\favicon.ico"/>
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-</head>
-
-<body>
-
-
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <span class="icon-bar"></span>
-                <h3>OMNI</h3>
-                <h6>
-                    Work place assurance
-                </h6>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="landing.html">Previous</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </div>
-
-    
-    
 
     <div id="page-container">
         <div id="content-wrap">
@@ -161,13 +160,14 @@ mysqli_close($conn);
                                         </div>
                                         <div class="text-center">Dont have an account? <a href="signup.php">Sign Up</a></div>
                                         <div class="field padding-bottom--24">
+                                        <!-- <p id="temp">
                                                 <?php
                                                 if(isset($_SESSION["message"])){
                                                     $error = $_SESSION["message"];
                                                     echo "<span>$error</span>";
                                                 }
                                                 ?>  
-                                                </p> 
+                                                </p> -->
                                             <input type="submit" name="submit" value="Continue">
                                         </div>
                                     </form>
