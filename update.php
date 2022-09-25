@@ -128,6 +128,35 @@
       //echo $id;
       // import credentials from the database
       require_once("config.php");
+    /**
+           * Get either a Gravatar URL or complete image tag for a specified email address.
+           *
+           * @param string $email The email address
+           * @param string $s Size in pixels, defaults to 80px [ 1 - 2048 ]
+           * @param string $d Default imageset to use [ 404 | mp | identicon | monsterid | wavatar ]
+           * @param string $r Maximum rating (inclusive) [ g | pg | r | x ]
+           * @param boole $img True to return a complete IMG tag False for just the URL
+           * @param array $atts Optional, additional key/value attributes to include in the IMG tag
+           * @return String containing either just a URL or a complete image tag
+           * @source https://gravatar.com/site/implement/images/php/
+           */
+
+        
+
+          function get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() ) {
+            $url = 'https://www.gravatar.com/avatar/';
+            $url .= md5( strtolower( trim( $email ) ) );
+            $url .= "?s=$s&d=$d&r=$r";
+            if ( $img ) {
+              $url = '<img src="' . $url . '"';
+              foreach ( $atts as $key => $val )
+                $url .= ' ' . $key . '="' . $val . '"';
+              $url .= ' />';
+            }
+            return $url;
+          }
+
+
       // store the values from the form 
       //$emplogin_id =$_SESSION["employee"];
       $firstname = $_REQUEST['firstname'];
@@ -136,10 +165,17 @@
       $birthdate = $_REQUEST['bdate'];
       $linemanager = $_REQUEST['linemanager'];
 
-      $Picture = time().$_FILES['image']['name'];
-      //Move image destination//
-      $dest = "images/" . $Picture;
-      move_uploaded_file($_FILES['image']['tmp_name'], $dest);
+      $email = $_REQUEST['email'];
+
+        if($email){
+           $Picture=  get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() );
+        }else{
+          $Picture = time().$_FILES['fileToUpload']['name'];
+          //Move image destination//
+          $dest = "images/" . $Picture;
+          move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
+        }
+       
 
       $position = $_REQUEST['position'];
       $pay = $_REQUEST['pay'];

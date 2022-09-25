@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            body {background-color: #92a8d1;}
+    </style>
+
+</head>
+<body>
+    
+</body>
+</html>
+
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -27,6 +44,7 @@
         </li>
         </ul>
         </nav>
+    
     </div>
     <!--/.nav-collapse -->
 </div>

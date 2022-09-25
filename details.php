@@ -48,8 +48,9 @@
             or die("<p style=\"color: red;\">Could not execute query!</p>");
             while($row = $result->fetch_assoc()) {
             echo "<br>"."</br>";
-            echo '<img style="width: 300px; height: 300px" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"/>';
-            // echo '<img id="venue" src="images/' .$row['image']. '"/>';
+            echo "<img src='".$row['image']."' />";
+            echo "<img src='images/".$row['image']."  ' />";
+            //echo "<img src='images/".$row['image']." style="width:200px;height:200px;">"; 
             echo "<h2>" .$row['firstname']." ".$row['surname']. "</h2>";
             echo "<br>"."Job Title: ". $row['position'] . "<br>";
             echo "<br>"."Employee Number: ". $row['employee_number']."<br>";

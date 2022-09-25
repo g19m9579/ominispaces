@@ -56,7 +56,35 @@
 
     <?php
       if (isset($_REQUEST['submit'])){
+
+           /**
+           * Get either a Gravatar URL or complete image tag for a specified email address.
+           *
+           * @param string $email The email address
+           * @param string $s Size in pixels, defaults to 80px [ 1 - 2048 ]
+           * @param string $d Default imageset to use [ 404 | mp | identicon | monsterid | wavatar ]
+           * @param string $r Maximum rating (inclusive) [ g | pg | r | x ]
+           * @param boole $img True to return a complete IMG tag False for just the URL
+           * @param array $atts Optional, additional key/value attributes to include in the IMG tag
+           * @return String containing either just a URL or a complete image tag
+           * @source https://gravatar.com/site/implement/images/php/
+           */
+
         
+
+        function get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() ) {
+          $url = 'https://www.gravatar.com/avatar/';
+          $url .= md5( strtolower( trim( $email ) ) );
+          $url .= "?s=$s&d=$d&r=$r";
+          if ( $img ) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $atts as $key => $val )
+              $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+          }
+          return $url;
+        }
+
         require_once("config.php");
         // make connection to database
         $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
@@ -68,35 +96,20 @@
         $emp_id = $_REQUEST['emp_id'];
         $birthdate = $_REQUEST['bdate'];
         $linemanager = $_REQUEST['linemanager'];
-
-        $Picture = time().$_FILES['fileToUpload']['name'];
-        //Move image destination//
-        $dest = "images/" . $Picture;
-        move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
-
         $position = $_REQUEST['position'];
         $pay = $_REQUEST['pay'];
-        // $pos_code;
-        // switch ($position) {
-        //   case "Intern":
-        //     $pos_code = 1;
-        //     break;
-        //   case "Staff":
-        //     $pos_code = 2;
-        //     break;
-        //   case "HR" || "Supervisor":
-        //     $pos_code = 3;
-        //     break;
-        //   case "Service Manager" || "Adminstrator" || "General Manager":
-        //     $pos_code = 4;
-        //     break;
-        //   case "CEO" :
-        //     $pos_code = 5;
-        //     break;
-        //   default:
-        //   $pos_code = null;
-        // }
-        
+        $email = $_REQUEST['email'];
+
+        if($email){
+           $Picture=  get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() );
+        }else{
+          $Picture = time().$_FILES['fileToUpload']['name'];
+          //Move image destination//
+          $dest = "images/" . $Picture;
+          move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $dest);
+        }
+       
+
         $password = $_REQUEST['password'];
         $cpassword = $_REQUEST['confirmpassword'];
 
@@ -278,14 +291,14 @@
                             <div class="grid--50-50">
                             <label for="position">position</label>
                             <select id="position" name="position" required>
-                                <option value="volvo">Intern</option>
-                                <option value="saab">Staff</option>
-                                <option value="fiat">HR</option>
-                                <option value="audi">Supervisor</option>
-                                <option value="volvo">Service Manager</option>
-                                <option value="saab">Adminstrator</option>
-                                <option value="fiat">General Manager</option>
-                                <option value="audi">CEO</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Staff">Staff</option>
+                                <option value="HR">HR</option>
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="Service Manager">Service Manager</option>
+                                <option value="Adminstrator">Adminstrator</option>
+                                <option value="General Manager">General Manager</option>
+                                <option value="CEO">CEO</option>
                               </select>
                             </div>
 
@@ -299,6 +312,10 @@
                             <input type="text" name="linemanager" required>
                             </div>
                        
+                            <div class="grid--50-50">
+                            <label for="fileToUpload">  Insert Email for gravatar or upload profile image:</label>
+                            <input type="email" name="email" id="email">
+                            </div>
 
                             <div class="grid--50-50">
                             <label for="fileToUpload">  Select image to upload:</label>

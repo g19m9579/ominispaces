@@ -26,10 +26,20 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
         
-
+ 
 </head>
 
 <body>
+<style>
+        /* Centered text */
+    .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    </style>
 
     <!-- Static navbar -->
 
@@ -37,13 +47,14 @@
 
     <!-- +++++ Landing page Section +++++ -->
     <div id="page-container">
-        <div id="content-wrap">
-    
-            
+        <!-- image text -->
+        <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="tree" width=100% > 
+        <div class="centered">
+       <h1  style="color:white">  Work place assurance.</h1>
+        </div>
                         
             </div> <!-- /container -->
-        </div>
-  
+        
 
 
 
