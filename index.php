@@ -16,7 +16,15 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
-
+    <style>
+        /* Centered text */
+    .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    </style>
 </head>
 
 <body>
@@ -50,12 +58,12 @@
 
     <!-- +++++ Landing page Section +++++ -->
     <div id="page-container">
-        <div id="content-wrap" class="card">
-    
-
-            </div> <!-- /container -->
-        </div>
-
+        <!-- image text -->
+        <img src="https://cdn.britannica.com/34/153434-050-863E8023/Mount-Kilimanjaro-Tanzania.jpg" alt="tree" width=100% > 
+        <div class="centered">
+       <h1  style="color:white">  Work place assurance.</h1>
+        </div>               
+     </div> <!-- /container -->
 
 
         <!-- +++++ Footer Section +++++ -->
