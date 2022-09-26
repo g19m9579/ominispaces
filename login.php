@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+    
 <?php
 //set session 
 
@@ -14,64 +16,7 @@ $handler->register();
 // We just set a fixed session ID only for the sake of our example.
 session_id('example_session_id');
 session_start();
-
-// if (isset($_SESSION['foo'])) {
-//     echo "Session has `foo` set to {$_SESSION['foo']}", PHP_EOL;
-// } else {
-//     $_SESSION['foo'] = $value = mt_rand();
-//     echo "Empty session, `foo` has been set with $value", PHP_EOL;
-// }
-
-
-
-//-------------------------------------------------------------------------------------
-
-require_once("config.php");
-// Connect to DB
-$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
-or die("ERROR: unable to connect to database!");
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
- }
-   echo "Connected successfully";
-
-//Processing form data when form is submitted
-if(isset($_REQUEST['submit'])){
-
-    $emp_id = trim($_REQUEST['emp_id']);
-    $password = trim($_REQUEST['password']);
-
-    // issue query instructions
-    $query = "SELECT *
-    FROM employee
-    WHERE employee_number = '$emp_id'
-        AND  password = '$password';";
-
-    $result = mysqli_query($conn, $query) or die("ERROR: unable to execute query!");
-    
-    if($result){
-        $user;
-        while ($row = mysqli_fetch_array($result)){
-            $user = $row['name'];
-            $passw = $row['password'];
-            $user_id = $row['employee_number'];
-        }
-        if($emp_id==$user_id and $passw == $password ){
-            $_SESSION["loggeduser"]= $user_id;
-            header("location:homepage.php");
-        }else	{
-            $_SESSION['message']="Incorrect Username or Password,Try again.";
-            header("location:login.php");
-        }
-        }
-
-}
-// close the connection to database
-mysqli_close($conn);
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -215,6 +160,64 @@ mysqli_close($conn);
     </footer>
     </div>
 
+   <?php
+
+// if (isset($_SESSION['foo'])) {
+//     echo "Session has `foo` set to {$_SESSION['foo']}", PHP_EOL;
+// } else {
+//     $_SESSION['foo'] = $value = mt_rand();
+//     echo "Empty session, `foo` has been set with $value", PHP_EOL;
+// }
+
+
+
+//-------------------------------------------------------------------------------------
+
+require_once("config.php");
+// Connect to DB
+$conn = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db)
+or die("ERROR: unable to connect to database!");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+ }
+   echo "Connected successfully";
+
+//Processing form data when form is submitted
+if(isset($_REQUEST['submit'])){
+
+    $emp_id = trim($_REQUEST['emp_id']);
+    $password = trim($_REQUEST['password']);
+
+    // issue query instructions
+    $query = "SELECT *
+    FROM employee
+    WHERE employee_number = '$emp_id'
+        AND  password = '$password';";
+
+    $result = mysqli_query($conn, $query) or die("ERROR: unable to execute query!");
+    
+    if($result){
+        $user;
+        while ($row = mysqli_fetch_array($result)){
+            $user = $row['name'];
+            $passw = $row['password'];
+            $user_id = $row['employee_number'];
+        }
+        if($emp_id==$user_id and $passw == $password ){
+            $_SESSION["loggeduser"]= $user_id;
+            header("location:homepage.php");
+        }else	{
+            $_SESSION['message']="Incorrect Username or Password,Try again.";
+            header("location:login.php");
+        }
+        }
+
+}
+// close the connection to database
+mysqli_close($conn);
+?>
 
 <script>
     let temp = document.getElementById("temp");
