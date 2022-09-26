@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-// session_start();
-// session_destroy();
-// header("location:landing.html")
+session_start();
+session_destroy();
+header("location:index.php")
 ?>
 <html lang="en">
 <head>

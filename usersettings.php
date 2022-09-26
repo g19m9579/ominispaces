@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 //include auth_session.php file on all user panel pages
-//include("auth_session.php");
+include("auth_session.php");
 ?>
 
 <html lang="en">
@@ -31,7 +31,7 @@
 
         <legend><strong>Your Settings</strong></legend><br>
         <?php
-        $emply_id = $_REQUEST['id'];
+        $emply_id =  $_SESSION["loggeduser"];
         // add database credentials
         require_once("config.php");
         // make connection to DB

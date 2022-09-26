@@ -29,7 +29,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="landing.html">Previous</a></li>
+                    <li><a href="index.php">Previous</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -38,8 +38,32 @@
 
     
     <?php
-//session_start();
-//$cookie_name = "user";
+//set session 
+
+// Instantiate a new client just like you would normally do. Using a prefix for
+// keys will effectively prefix all session keys with the specified string.
+$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
+
+// Set `gc_maxlifetime` to specify a time-to-live of 5 seconds for session keys.
+$handler = new Predis\Session\Handler($client, array('gc_maxlifetime' => 5));
+
+// Register the session handler.
+$handler->register();
+
+// We just set a fixed session ID only for the sake of our example.
+session_id('example_session_id');
+session_start();
+
+// if (isset($_SESSION['foo'])) {
+//     echo "Session has `foo` set to {$_SESSION['foo']}", PHP_EOL;
+// } else {
+//     $_SESSION['foo'] = $value = mt_rand();
+//     echo "Empty session, `foo` has been set with $value", PHP_EOL;
+// }
+
+
+
+//-------------------------------------------------------------------------------------
 
 require_once("config.php");
 // Connect to DB
@@ -74,8 +98,7 @@ if(isset($_REQUEST['submit'])){
             $user_id = $row['employee_number'];
         }
         if($emp_id==$user_id and $passw == $password ){
-            $_SESSION["login"]= $user;
-            $_SESSION["employee"]= $user_id;
+            $_SESSION["loggeduser"]= $user_id;
             header("location:homepage.php");
         }else	{
             $_SESSION['message']="Incorrect Username or Password,Try again.";
