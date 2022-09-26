@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-   
-<?php
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> OMNI </title>
+    <link rel="shortcut icon" type="image/jpg" href="images\favicon_io\favicon.ico"/>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="icon-bar"></span>
+                <h3>OMNI</h3>
+                <h6>
+                    Work place assurance
+                </h6>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.php">Previous</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+ 
+    <div id="page-container">
+        <div id="content-wrap">
+        <?php
 //set session 
-
-// Instantiate a new client just like you would normally do. Using a prefix for
-// keys will effectively prefix all session keys with the specified string.
-$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
-
-// Set `gc_maxlifetime` to specify a time-to-live of 5 seconds for session keys.
-$handler = new Predis\Session\Handler($client, array('gc_maxlifetime' => 5));
-
-// Register the session handler.
-$handler->register();
-
-// We just set a fixed session ID only for the sake of our example.
-session_id('example_session_id');
 session_start();
-
-// if (isset($_SESSION['foo'])) {
-//     echo "Session has `foo` set to {$_SESSION['foo']}", PHP_EOL;
-// } else {
-//     $_SESSION['foo'] = $value = mt_rand();
-//     echo "Empty session, `foo` has been set with $value", PHP_EOL;
-// }
-
-
 
 //-------------------------------------------------------------------------------------
 
@@ -73,49 +91,8 @@ if(isset($_REQUEST['submit'])){
 // close the connection to database
 mysqli_close($conn);
 ?>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title> OMNI </title>
-    <link rel="shortcut icon" type="image/jpg" href="images\favicon_io\favicon.ico"/>
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-</head>
-
-<body>
-
-
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <span class="icon-bar"></span>
-                <h3>OMNI</h3>
-                <h6>
-                    Work place assurance
-                </h6>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">Previous</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </div>
-
- 
-    <div id="page-container">
-        <div id="content-wrap">
             <!-- all other page content -->
 
-            +++++login+++++>
             <div class="login-root">
                 <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
                     <div class="loginbackground box-background--white padding-top--64">
