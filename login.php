@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-    
-<?php
-//set session 
-
-// Instantiate a new client just like you would normally do. Using a prefix for
-// keys will effectively prefix all session keys with the specified string.
-$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
-
-// Set `gc_maxlifetime` to specify a time-to-live of 5 seconds for session keys.
-$handler = new Predis\Session\Handler($client, array('gc_maxlifetime' => 5));
-
-// Register the session handler.
-$handler->register();
-
-// We just set a fixed session ID only for the sake of our example.
-session_id('example_session_id');
-session_start();
-?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -160,7 +142,23 @@ session_start();
     </footer>
     </div>
 
-   <?php
+       
+    <?php
+//set session 
+
+// Instantiate a new client just like you would normally do. Using a prefix for
+// keys will effectively prefix all session keys with the specified string.
+$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
+
+// Set `gc_maxlifetime` to specify a time-to-live of 5 seconds for session keys.
+$handler = new Predis\Session\Handler($client, array('gc_maxlifetime' => 5));
+
+// Register the session handler.
+$handler->register();
+
+// We just set a fixed session ID only for the sake of our example.
+session_id('example_session_id');
+session_start();
 
 // if (isset($_SESSION['foo'])) {
 //     echo "Session has `foo` set to {$_SESSION['foo']}", PHP_EOL;
