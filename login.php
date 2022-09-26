@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-       
 <?php
 //set session 
 
@@ -73,7 +71,7 @@ if(isset($_REQUEST['submit'])){
 // close the connection to database
 mysqli_close($conn);
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
